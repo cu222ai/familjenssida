@@ -1,0 +1,33 @@
+@extends('layouts.default')
+
+@section('content')
+<div class="row">
+  <div class="span8">
+  <h3>Skapa ny grupp</h3>
+
+ @render('errors')
+
+{{ Form::open(array(‘url’ => ‘user/create_group'))}}
+
+  <p>
+@if(!empty($friends))
+
+ {{ Form::select('friend_id', $friend_options, null, array('multiple' => 'multiple')) }}
+{{ Form::select('friend_id', $friend_options) }}
+
+
+
+
+  </p>
+
+
+<p>{{ Form::submit('Skapa grupp') }}</p>
+
+
+  {{ Form::close() }}
+  @else
+  <p> Du har inga foton att ladda upp!</p>
+  @endif
+  </div>
+  </div>
+@stop
